@@ -8,7 +8,6 @@
 
 #import "EditReferenceViewController.h"
 #import "ProjectClient.h"
-#import "Reference.h"
 #import "office365-base-sdk/OAuthentication.h"
 #import "ProjectDetailsViewController.h"
 
@@ -38,9 +37,18 @@
     self.navigationController.title = @"Edit Reference";
     
     self.navigationController.view.backgroundColor = nil;
-    self.referenceUrlTxt.text = self.selectedReference.url;
-    self.referenceDescription.text = self.selectedReference.description;
-    self.referenceTitle.text = self.selectedReference.title;
+    
+    NSDictionary *dic =[self.selectedReference getData:@"URL"];
+    
+    self.referenceUrlTxt.text = [dic valueForKey:@"Url"];
+    
+    if(![[self.selectedReference getData:@"Comments"] isEqual:[NSNull null]]){
+        self.referenceDescription.text = [self.selectedReference getData:@"Comments"];
+    }else{
+        self.referenceDescription.text = @"";
+    }
+
+    self.referenceTitle.text = [dic valueForKey:@"Description"];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -61,25 +69,40 @@
         
         [spinner startAnimating];
         
-        self.selectedReference.title = self.referenceTitle.text;
-        self.selectedReference.comments = self.referenceDescription.text;
-        self.selectedReference.url = self.referenceUrlTxt.text;
         
+        ListItem* editedReference = [[ListItem alloc] init];
+        
+        NSDictionary* urlDic = [NSDictionary dictionaryWithObjects:@[self.referenceUrlTxt.text, self.referenceTitle.text] forKeys:@[@"Url",@"Description"]];
+        
+        NSDictionary* dic = [NSDictionary dictionaryWithObjects:@[urlDic, self.referenceDescription.text, [self.selectedReference getData:@"Project"], self.selectedReference.Id] forKeys:@[@"URL",@"Comments",@"Project",@"Id"]];
+        
+        [editedReference initWithDictionary:dic];
+        
+
         ProjectClient* client = [self getClient];
         
-        NSURLSessionTask* task = [client updateReference:@"Research References" item:self.selectedReference callback:^(BOOL result, NSError *error) {
-            if(error == nil){
+        NSURLSessionTask* task = [client updateReference:editedReference callback:^(BOOL result, NSError *error) {
+            if(error == nil && result){
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [spinner stopAnimating];
-                    [self.navigationController popViewControllerAnimated:YES];
+                    ProjectDetailsViewController *View = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-3];
+                    [self.navigationController popToViewController:View animated:YES];
                 });
             }else{
-                NSString *errorMessage = [@"Update Project failed. Reason: " stringByAppendingString: error.description];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
-                [alert show];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [spinner stopAnimating];
+                    NSString *errorMessage = (error) ? [@"Update Reference failed. Reason: " stringByAppendingString: error.description] : @"Invalid Url";
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [alert show];
+                });
             }
         }];
         [task resume];
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Complete all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+        });
     }
 }
 

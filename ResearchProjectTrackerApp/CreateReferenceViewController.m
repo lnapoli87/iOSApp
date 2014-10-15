@@ -8,7 +8,6 @@
 
 #import "CreateReferenceViewController.h"
 #import "ProjectClient.h"
-#import "Reference.h"
 #import "office365-base-sdk/OAuthentication.h"
 
 @interface CreateReferenceViewController ()
@@ -59,24 +58,32 @@
         
         ProjectClient* client = [self getClient];
         
-        Reference* newReference = [[Reference alloc] init];
-        newReference.title = @"";
-        newReference.url = self.referenceUrlTxt.text;
-        newReference.comments = self.referenceDescription.text;
+        NSString* obj = [NSString stringWithFormat:@"{'Url':'%@', 'Description':'%@'}", self.referenceUrlTxt.text, self.referenceTitle.text];
+        NSDictionary* dic = [NSDictionary dictionaryWithObjects:@[obj, self.referenceDescription.text, [NSString stringWithFormat:@"%@", self.project.Id]] forKeys:@[@"URL", @"Comments", @"Project"]];
         
-        NSURLSessionTask* task = [client addReference:@"Research References" item:newReference callback:^(BOOL success, NSError *error) {
-            if(error == nil){
+        ListItem* newReference = [[ListItem alloc] initWithDictionary:dic];
+        
+        NSURLSessionTask* task = [client addReference:newReference callback:^(BOOL success, NSError *error) {
+            if(error == nil && success){
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [spinner stopAnimating];
                     [self.navigationController popViewControllerAnimated:YES];
                 });
             }else{
-                NSString *errorMessage = [@"Add Reference failed. Reason: " stringByAppendingString: error.description];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
-                [alert show];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [spinner stopAnimating];
+                    NSString *errorMessage = (error) ? [@"Add Reference failed. Reason: " stringByAppendingString: error.description] : @"Invalid Url";
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [alert show];
+                });
             }
         }];
         [task resume];
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Complete all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+        });
     }
 }
 
