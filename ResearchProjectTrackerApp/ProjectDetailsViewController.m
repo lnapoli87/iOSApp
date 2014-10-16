@@ -33,53 +33,53 @@
     spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.view addSubview:spinner];
     spinner.hidesWhenStopped = YES;
-    [spinner startAnimating];
-    
-    ProjectClient* client = [self getClient];
-    
-    NSURLSessionTask* task = [client getList:@"Research References" callback:^(ListEntity *list, NSError *error) {
-        
-        //If list doesn't exists, create one with name Research References
-        if(list){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self getReferences:spinner];
-            });
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self createReferencesList:spinner];
-            });
-        }
-        
-    }];
-    [task resume];
+//    [spinner startAnimating];
+//    
+//    ProjectClient* client = [self getClient];
+//    
+//    NSURLSessionTask* task = [client getList:@"Research References" callback:^(ListEntity *list, NSError *error) {
+//        
+//        //If list doesn't exists, create one with name Research References
+//        if(list){
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self getReferences:spinner];
+//            });
+//        }else{
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self createReferencesList:spinner];
+//            });
+//        }
+//        
+//    }];
+//    [task resume];
     
 }
 
 -(void)getReferences:(UIActivityIndicatorView *) spinner{
-    ProjectClient* client = [self getClient];
-    
-    NSURLSessionTask* listReferencesTask = [client getReferencesByProjectId:self.project.Id callback:^(NSMutableArray *listItems, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.references = [listItems copy];
-                [self.refencesTable reloadData];
-                [spinner stopAnimating];
-            });
-        
-        }];
-
-    [listReferencesTask resume];
+//    ProjectClient* client = [self getClient];
+//    
+//    NSURLSessionTask* listReferencesTask = [client getReferencesByProjectId:self.project.Id callback:^(NSMutableArray *listItems, NSError *error) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                self.references = [listItems copy];
+//                [self.refencesTable reloadData];
+//                [spinner stopAnimating];
+//            });
+//        
+//        }];
+//
+//    [listReferencesTask resume];
 }
 
 -(void)createReferencesList:(UIActivityIndicatorView *) spinner{
-    ProjectClient* client = [self getClient];
-    
-    ListEntity* newList = [[ListEntity alloc ] init];
-    [newList setTitle:@"Research References"];
-    
-    NSURLSessionTask* createProjectListTask = [client createList:newList :^(ListEntity *list, NSError *error) {
-        [spinner stopAnimating];
-    }];
-    [createProjectListTask resume];
+//    ProjectClient* client = [self getClient];
+//    
+//    ListEntity* newList = [[ListEntity alloc ] init];
+//    [newList setTitle:@"Research References"];
+//    
+//    NSURLSessionTask* createProjectListTask = [client createList:newList :^(ListEntity *list, NSError *error) {
+//        [spinner stopAnimating];
+//    }];
+//    [createProjectListTask resume];
 }
 
 -(ProjectClient*)getClient{

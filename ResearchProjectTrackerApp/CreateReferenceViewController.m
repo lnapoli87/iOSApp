@@ -54,45 +54,45 @@
         [self.view addSubview:spinner];
         spinner.hidesWhenStopped = YES;
         
-        [spinner startAnimating];
-        
-        ProjectClient* client = [self getClient];
-        
-        NSString* obj = [NSString stringWithFormat:@"{'Url':'%@', 'Description':'%@'}", self.referenceUrlTxt.text, self.referenceTitle.text];
-        NSDictionary* dic = [NSDictionary dictionaryWithObjects:@[obj, self.referenceDescription.text, [NSString stringWithFormat:@"%@", self.project.Id]] forKeys:@[@"URL", @"Comments", @"Project"]];
-        
-        ListItem* newReference = [[ListItem alloc] initWithDictionary:dic];
-        
-        NSURLSessionTask* task = [client addReference:newReference callback:^(BOOL success, NSError *error) {
-            if(error == nil && success){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [spinner stopAnimating];
-                    [self.navigationController popViewControllerAnimated:YES];
-                });
-            }else{
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [spinner stopAnimating];
-                    NSString *errorMessage = (error) ? [@"Add Reference failed. Reason: " stringByAppendingString: error.description] : @"Invalid Url";
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                    [alert show];
-                });
-            }
-        }];
-        [task resume];
-    }else{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Complete all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [alert show];
-        });
+//        [spinner startAnimating];
+//        
+//        ProjectClient* client = [self getClient];
+//        
+//        NSString* obj = [NSString stringWithFormat:@"{'Url':'%@', 'Description':'%@'}", self.referenceUrlTxt.text, self.referenceTitle.text];
+//        NSDictionary* dic = [NSDictionary dictionaryWithObjects:@[obj, self.referenceDescription.text, [NSString stringWithFormat:@"%@", self.project.Id]] forKeys:@[@"URL", @"Comments", @"Project"]];
+//        
+//        ListItem* newReference = [[ListItem alloc] initWithDictionary:dic];
+//        
+//        NSURLSessionTask* task = [client addReference:newReference callback:^(BOOL success, NSError *error) {
+//            if(error == nil && success){
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [spinner stopAnimating];
+//                    [self.navigationController popViewControllerAnimated:YES];
+//                });
+//            }else{
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [spinner stopAnimating];
+//                    NSString *errorMessage = (error) ? [@"Add Reference failed. Reason: " stringByAppendingString: error.description] : @"Invalid Url";
+//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//                    [alert show];
+//                });
+//            }
+//        }];
+//        [task resume];
+//    }else{
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Complete all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//            [alert show];
+//        });
     }
 }
-
--(ProjectClient*)getClient{
-    OAuthentication* authentication = [OAuthentication alloc];
-    [authentication setToken:self.token];
-    
-    return [[ProjectClient alloc] initWithUrl:@"https://foxintergen.sharepoint.com/ContosoResearchTracker"
-                                  credentials: authentication];
-}
+//
+//-(ProjectClient*)getClient{
+//    OAuthentication* authentication = [OAuthentication alloc];
+//    [authentication setToken:self.token];
+//    
+//    return [[ProjectClient alloc] initWithUrl:@"https://foxintergen.sharepoint.com/ContosoResearchTracker"
+//                                  credentials: authentication];
+//}
 
 @end

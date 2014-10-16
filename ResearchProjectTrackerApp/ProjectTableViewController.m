@@ -67,52 +67,54 @@ NSURLSessionDownloadTask* task;
     spinner.hidesWhenStopped = YES;
     [spinner startAnimating];
     
-    ListClient* client = [self getClient];
+//    ListClient* client = [self getClient];
     
-   NSURLSessionTask* task = [client getList:@"Research Projects" callback:^(ListEntity *list, NSError *error) {
-        
+//    NSURLSessionTask* task = [client getList:@"Research Projects" callback:^(ListEntity *list, NSError *error) {
+    
     //If list doesn't exists, create one with name Research Projects
-   if(list){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self getProjectsFromList:spinner];
-            });
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self createProjectList:spinner];
-            });
-        }
-        
-    }];
-    [task resume];
+//   if(list){
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self getProjectsFromList:spinner];
+//            });
+//        }else{
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self createProjectList:spinner];
+//            });
+//        }
+//        
+//    }];
+//    [task resume];
+    [spinner stopAnimating];
+    
 }
 
 -(void)getProjectsFromList:(UIActivityIndicatorView *) spinner{
-    ListClient* client = [self getClient];
+//    ListClient* client = [self getClient];
     
-    NSURLSessionTask* listProjectsTask = [client getListItems:@"Research Projects" callback:^(NSMutableArray *listItems, NSError *error) {
-        if(!error){
-            self.projectsList = listItems;
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-                [spinner stopAnimating];
-            });
-        }
-    }];
-    [listProjectsTask resume];
+//    NSURLSessionTask* listProjectsTask = [client getListItems:@"Research Projects" callback:^(NSMutableArray *listItems, NSError *error) {
+//        if(!error){
+//            self.projectsList = listItems;
+//            
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.tableView reloadData];
+//                [spinner stopAnimating];
+//            });
+//        }
+//    }];
+//    [listProjectsTask resume];
 }
 
 
 -(void)createProjectList:(UIActivityIndicatorView *) spinner{
-    ListClient* client = [self getClient];
-    
-    ListEntity* newList = [[ListEntity alloc ] init];
-    [newList setTitle:@"Research Projects"];
-    
-    NSURLSessionTask* createProjectListTask = [client createList:newList :^(ListEntity *list, NSError *error) {
-        [spinner stopAnimating];
-    }];
-    [createProjectListTask resume];
+//    ListClient* client = [self getClient];
+//    
+//    ListEntity* newList = [[ListEntity alloc ] init];
+//    [newList setTitle:@"Research Projects"];
+//    
+//    NSURLSessionTask* createProjectListTask = [client createList:newList :^(ListEntity *list, NSError *error) {
+//        [spinner stopAnimating];
+//    }];
+//    [createProjectListTask resume];
 }
 
 - (IBAction)backToLogin:(id)sender{
@@ -123,13 +125,14 @@ NSURLSessionDownloadTask* task;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
 }
 
--(ListClient*)getClient{
-    OAuthentication* authentication = [OAuthentication alloc];
-    [authentication setToken:self.token];
+//-(ListClient*)getClient{
+//    OAuthentication* authentication = [OAuthentication alloc];
+//    [authentication setToken:self.token];
+//    
+//    return [[ListClient alloc] initWithUrl:@"https://foxintergen.sharepoint.com/ContosoResearchTracker"
+//                               credentials: authentication];
     
-    return [[ListClient alloc] initWithUrl:@"https://foxintergen.sharepoint.com/ContosoResearchTracker"
-                               credentials: authentication];
-}
+//}
 
 
 
