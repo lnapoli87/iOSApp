@@ -1,8 +1,10 @@
 #import "ViewController.h"
 #import "ProjectTableViewController.h"
+#import <QuartzCore/QuartzCore.h>
+
 #import "office365-base-sdk/Credentials.h"
 #import <office365-base-sdk/LoginClient.h>
-#import <QuartzCore/QuartzCore.h>
+
 @interface ViewController ()
             
 
