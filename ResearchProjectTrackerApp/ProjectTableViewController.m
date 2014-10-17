@@ -13,6 +13,7 @@ UIView* blockerPanel;
 ListItem* currentEntity;
 NSURLSessionDownloadTask* task;
 
+#pragma mark Default Methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -28,12 +29,7 @@ NSURLSessionDownloadTask* task;
     
     [self loadData];
 }
-
-
-
-
-
-
+#pragma mark -
 #pragma mark Loading Projects
 -(void)loadData{
     //Here must be either the list items gathering
@@ -64,7 +60,7 @@ NSURLSessionDownloadTask* task;
 
 
 
-
+#pragma mark -
 #pragma mark Forward Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -83,7 +79,7 @@ NSURLSessionDownloadTask* task;
     [self loadData];
 }
 
-
+#pragma mark -
 #pragma mark Backwards Navigation
 -(void) viewWillDisappear:(BOOL)animated {
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
@@ -113,9 +109,7 @@ NSURLSessionDownloadTask* task;
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
 }
-
-
-
+#pragma mark -
 #pragma mark Table actions
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

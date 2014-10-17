@@ -5,7 +5,8 @@
 #import "ProjectTableViewController.h"
 
 @implementation EditProjectViewController
-
+#pragma mark -
+#pragma mark Default Methods
 -(void)viewDidLoad{
     [super viewDidLoad];
     
@@ -13,13 +14,16 @@
     self.navigationController.title = @"Edit Project";
 }
 
-
-#pragma mark Edit and Delete actions
+#pragma mark -
+#pragma mark Edit actions
 - (IBAction)editProject:(id)sender {
     [self updateProject];
 }
 -(void)updateProject{
 }
+
+#pragma mark -
+#pragma mark Delete Actions
 -(IBAction)deleteProject:(id)sender {
     [self deleteProject];
 }

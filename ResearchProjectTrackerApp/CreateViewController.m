@@ -5,10 +5,14 @@
 
 @implementation CreateViewController
 
+#pragma mark -
+#pragma mark Default Methods
 -(void)viewDidLoad{
     [super viewDidLoad];
 }
 
+#pragma mark -
+#pragma mark Create Actions
 - (IBAction)createProject:(id)sender {
     [self createProject];
 }

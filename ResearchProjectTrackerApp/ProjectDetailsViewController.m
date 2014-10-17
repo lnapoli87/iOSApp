@@ -9,6 +9,8 @@
 @implementation ProjectDetailsViewController
 
 //ViewController actions
+#pragma mark -
+#pragma mark Default Methods
 -(void)viewDidLoad{
     self.projectName.text = @"aProject";
     self.navigationItem.title = @"aProject";
@@ -16,13 +18,12 @@
     self.selectedReference = false;
     self.projectNameField.hidden = true;
     
-    
     [self loadData];
 }
 
 
 
-
+#pragma mark -
 #pragma mark Loading References
 -(void)loadData{
 }
@@ -34,7 +35,7 @@
 }
 
 
-
+#pragma mark -
 #pragma mark Forward Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -69,7 +70,7 @@
 
 
 
-
+#pragma mark -
 #pragma mark Table actions
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
