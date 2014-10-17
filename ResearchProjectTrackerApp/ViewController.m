@@ -22,21 +22,25 @@ NSString* token;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    authority = [NSString alloc];
-    resourceId = [NSString alloc];
-    clientId = [NSString alloc];
-    redirectUriString = [NSString alloc];
-    authority = @"https://login.windows.net/common";
-    resourceId = @"https://foxintergen.sharepoint.com";
-    clientId = @"13b04d26-95fc-4fb4-a67e-c850e07822a8";
-    redirectUriString = @"http://android/complete";
-    token = [NSString alloc];
-    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
+    
+    
+    //AzureAD account details
+    authority = [NSString alloc];
+    resourceId = [NSString alloc];
+    clientId = [NSString alloc];
+    redirectUriString = [NSString alloc];
+    
+    authority = @"https://login.windows.net/common";
+    resourceId = @"https://foxintergen.sharepoint.com";
+    clientId = @"13b04d26-95fc-4fb4-a67e-c850e07822a8";
+    redirectUriString = @"http://android/complete";
+    
+    token = [NSString alloc];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

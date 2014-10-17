@@ -13,7 +13,6 @@ UIView* blockerPanel;
 ListItem* currentEntity;
 NSURLSessionDownloadTask* task;
 
-//ViewController actions
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,13 +23,70 @@ NSURLSessionDownloadTask* task;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.view.backgroundColor = nil;
     
+    //ObjC array that will contain the project list items
     self.projectsList = [[NSMutableArray alloc] init];
     
     [self loadData];
 }
+
+
+
+
+
+
+#pragma mark Loading Projects
+-(void)loadData{
+    //Here must be either the list items gathering
+    //or the creation of the list if it wasn't found.
+    //Beginning with a spinner
+            /*
+                 UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+                 spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+                 [self.view addSubview:spinner];
+                 spinner.hidesWhenStopped = YES;
+             */
+    //And then calling either:
+            /*
+                [self getProjectsFromList:spinner];
+             */
+    //or
+            /*
+                [self createProjectList:spinner];
+             */
+}
+
+-(void)getProjectsFromList:(UIActivityIndicatorView *) spinner{
+}
+
+
+-(void)createProjectList:(UIActivityIndicatorView *) spinner{
+}
+
+
+
+
+#pragma mark Forward Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"newProject"]){
+        CreateViewController *controller = (CreateViewController *)segue.destinationViewController;
+        controller.token = self.token;
+    }else if([segue.identifier isEqualToString:@"detail"]){
+        ProjectDetailsViewController *controller = (ProjectDetailsViewController *)segue.destinationViewController;
+        //controller.project = currentEntity;       Here set the current selected project
+        controller.token = self.token;
+    }
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self loadData];
+}
+
+
+#pragma mark Backwards Navigation
 -(void) viewWillDisappear:(BOOL)animated {
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        // Navigation button was pressed. Do some stuff
         [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                       forBarMetrics:UIBarMetricsDefault];
         self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -50,73 +106,6 @@ NSURLSessionDownloadTask* task;
     self.tableView.scrollEnabled = true;
     self.navigationController.navigationItem.backBarButtonItem.Enabled = true;
 }
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self loadData];
-}
-
-
-
-
-//Loading Projects
--(void)loadData{
-    //Create and add a spinner
-    UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
-    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-    [self.view addSubview:spinner];
-    spinner.hidesWhenStopped = YES;
-    [spinner startAnimating];
-    
-//    ListClient* client = [self getClient];
-    
-//    NSURLSessionTask* task = [client getList:@"Research Projects" callback:^(ListEntity *list, NSError *error) {
-    
-    //If list doesn't exists, create one with name Research Projects
-//   if(list){
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self getProjectsFromList:spinner];
-//            });
-//        }else{
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self createProjectList:spinner];
-//            });
-//        }
-//        
-//    }];
-//    [task resume];
-    [spinner stopAnimating];
-    
-}
-
--(void)getProjectsFromList:(UIActivityIndicatorView *) spinner{
-//    ListClient* client = [self getClient];
-    
-//    NSURLSessionTask* listProjectsTask = [client getListItems:@"Research Projects" callback:^(NSMutableArray *listItems, NSError *error) {
-//        if(!error){
-//            self.projectsList = listItems;
-//            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self.tableView reloadData];
-//                [spinner stopAnimating];
-//            });
-//        }
-//    }];
-//    [listProjectsTask resume];
-}
-
-
--(void)createProjectList:(UIActivityIndicatorView *) spinner{
-//    ListClient* client = [self getClient];
-//    
-//    ListEntity* newList = [[ListEntity alloc ] init];
-//    [newList setTitle:@"Research Projects"];
-//    
-//    NSURLSessionTask* createProjectListTask = [client createList:newList :^(ListEntity *list, NSError *error) {
-//        [spinner stopAnimating];
-//    }];
-//    [createProjectListTask resume];
-}
-
 - (IBAction)backToLogin:(id)sender{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
@@ -125,53 +114,27 @@ NSURLSessionDownloadTask* task;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
 }
 
-//-(ListClient*)getClient{
-//    OAuthentication* authentication = [OAuthentication alloc];
-//    [authentication setToken:self.token];
-//    
-//    return [[ListClient alloc] initWithUrl:@"https://foxintergen.sharepoint.com/ContosoResearchTracker"
-//                               credentials: authentication];
-    
-//}
 
 
-
-
-
-//Table actions
+#pragma mark Table actions
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* identifier = @"ProjectListCell";
     ProjectTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier: identifier ];
     
-    ListItem *item = [self.projectsList objectAtIndex:indexPath.row];
-    cell.ProjectName.text = [item getTitle];
+    cell.ProjectName.text = @"aProject";
     
     return cell;
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.projectsList count];
-}
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"newProject"]){
-        CreateViewController *controller = (CreateViewController *)segue.destinationViewController;
-        controller.token = self.token;
-    }else{
-        ProjectDetailsViewController *controller = (ProjectDetailsViewController *)segue.destinationViewController;
-        controller.project = currentEntity;
-        controller.token = self.token;
-    }
-    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 40;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    currentEntity= [self.projectsList objectAtIndex:indexPath.row];
-    
     [self performSegueWithIdentifier:@"detail" sender:self];
 }
 

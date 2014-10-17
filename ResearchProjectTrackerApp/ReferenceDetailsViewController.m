@@ -1,11 +1,3 @@
-//
-//  ReferenceDetailsViewController.m
-//  ResearchProjectTrackerApp
-//
-//  Created by Lucas Damian Napoli on 02/10/14.
-//  Copyright (c) 2014 microsoft. All rights reserved.
-//
-
 #import "ReferenceDetailsViewController.h"
 #import "ReferenceDetailTableCellTableViewCell.h"
 #import "EditReferenceViewController.h"
@@ -35,26 +27,20 @@
     self.navigationController.navigationBar.shadowImage = nil;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.view.backgroundColor = nil;
-    
-    NSDictionary *dic =[self.selectedReference getData:@"URL"];
-    
-    if(![[self.selectedReference getData:@"Comments"] isEqual:[NSNull null]]){
-        self.descriptionLbl.text = [self.selectedReference getData:@"Comments"];
-    }else{
-        self.descriptionLbl.text = @"";
-    }
     self.urlTableCell.scrollEnabled = NO;
-    self.navigationItem.title = [dic valueForKey:@"Description"];
+    
+    
+    self.descriptionLbl.text = @"";
+    self.navigationItem.title = @"aProject";
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
 
-//Table actions
+#pragma mark Table actions
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
 }
@@ -62,26 +48,26 @@
     NSString* identifier = @"referenceDetailsTableCell";
     ReferenceDetailTableCellTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier: identifier ];
     
-    NSDictionary *dic =[self.selectedReference getData:@"URL"];
-    
-    cell.urlContentLBL.text = [dic valueForKey:@"Url"];
+    cell.urlContentLBL.text = @"Url";
     
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dic =[self.selectedReference getData:@"URL"];
-    NSURL *url = [NSURL URLWithString:[dic valueForKey:@"Url"]];
+    //Open the url in safari
+    NSURL *url = [NSURL URLWithString:@"http://www.microsoft.com"];
     
     if (![[UIApplication sharedApplication] openURL:url]) {
         NSLog(@"%@%@",@"Failed to open url:",[url description]);
     }
 }
+
+#pragma mark Forward Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"editReference"]){
         EditReferenceViewController *controller = (EditReferenceViewController *)segue.destinationViewController;
         controller.token = self.token;
-        controller.selectedReference = self.selectedReference;
+        //controller.selectedReference = self.selectedReference;        set the current reference
     }
 }
 
