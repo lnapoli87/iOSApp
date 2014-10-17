@@ -1,10 +1,8 @@
 #import "ViewController.h"
 #import "ProjectTableViewController.h"
-#import <QuartzCore/QuartzCore.h>
-
 #import "office365-base-sdk/Credentials.h"
 #import <office365-base-sdk/LoginClient.h>
-
+#import <QuartzCore/QuartzCore.h>
 @interface ViewController ()
             
 
@@ -21,9 +19,9 @@ Credentials* credentials;
 NSString* token;
 
 //ViewController actions
-#pragma mark Default Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -47,12 +45,8 @@ NSString* token;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
--(void) showOkOnlyAlert : (NSString*) message : (NSString*) title{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-    [alert show];
-}
 
-#pragma mark Login Action
+
 - (IBAction)Login:(id)sender {
     [self performLogin:FALSE];
 }
@@ -78,7 +72,7 @@ NSString* token;
         }        
     }];
 }
-#pragma mark Clear Action
+
 - (IBAction)Clear:(id)sender {
     NSError *error;
     LoginClient *client = [[LoginClient alloc] initWithParameters: clientId: redirectUriString:resourceId :authority];
@@ -93,6 +87,11 @@ NSString* token;
     {
         [self showOkOnlyAlert:@"Clear credentials success." : @"Success"];
     }
+}
+
+-(void) showOkOnlyAlert : (NSString*) message : (NSString*) title{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+    [alert show];
 }
 
 @end
