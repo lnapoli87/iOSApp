@@ -1,6 +1,6 @@
 #import "CreateReferenceViewController.h"
 #import "ProjectClient.h"
-#import "office365-base-sdk/OAuthentication.h"
+//#import "office365-base-sdk/OAuthentication.h"
 
 @interface CreateReferenceViewController ()
 
@@ -10,6 +10,8 @@
 
 
 //ViewController actions
+#pragma mark -
+#pragma mark Default Methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,7 +37,7 @@
 
 
 
-
+#pragma mark -
 #pragma mark Create Reference
 - (IBAction)createReference:(id)sender {
     [self createReference];

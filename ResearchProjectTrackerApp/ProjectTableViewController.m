@@ -1,16 +1,17 @@
 #import "ProjectTableViewController.h"
 #import "ProjectTableViewCell.h"
-#import "office365-lists-sdk/ListClient.h"
-#import "office365-lists-sdk/ListItem.h"
 #import "ProjectDetailsViewController.h"
-#import "office365-base-sdk/OAuthentication.h"
+
+//#import "office365-lists-sdk/ListClient.h"
+//#import "office365-lists-sdk/ListItem.h"
+//#import "office365-base-sdk/OAuthentication.h"
 
 @implementation ProjectTableViewController
 
 UIView* popUpView;
 UILabel* popUpLabel;
 UIView* blockerPanel;
-ListItem* currentEntity;
+//ListItem* currentEntity;
 NSURLSessionDownloadTask* task;
 
 #pragma mark Default Methods

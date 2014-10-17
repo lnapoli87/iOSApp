@@ -10,6 +10,8 @@
 @implementation EditReferenceViewController
 
 //ViewController actions
+#pragma mark -
+#pragma mark Default Methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,13 +42,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark Edit and Delete actions
-- (IBAction)editReference:(id)sender {
+#pragma mark -
+#pragma mark Edit  Actions
+-(IBAction)editReference:(id)sender {
     [self updateReference];
 }
 -(void)updateReference{
 }
+
+#pragma mark -
+#pragma mark Delete Actions
 - (IBAction)deleteReference:(id)sender {
     [self deleteReference];
 }

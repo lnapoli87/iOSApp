@@ -1,8 +1,7 @@
 #import "EditProjectViewController.h"
-
-#import "office365-base-sdk/OAuthentication.h"
 #import "ProjectClient.h"
 #import "ProjectTableViewController.h"
+//#import "office365-base-sdk/OAuthentication.h"
 
 @implementation EditProjectViewController
 #pragma mark -

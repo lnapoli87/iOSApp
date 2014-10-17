@@ -1,10 +1,11 @@
 #import "ProjectDetailsViewController.h"
-#import "office365-base-sdk/OAuthentication.h"
 #import "ProjectClient.h"
 #import "ReferencesTableViewCell.h"
 #import "ReferenceDetailsViewController.h"
 #import "CreateReferenceViewController.h"
 #import "EditProjectViewController.h"
+
+//#import "office365-base-sdk/OAuthentication.h"
 
 @implementation ProjectDetailsViewController
 
@@ -15,7 +16,7 @@
     self.projectName.text = @"aProject";
     self.navigationItem.title = @"aProject";
     self.navigationItem.rightBarButtonItem.title = @"Done";
-    self.selectedReference = false;
+//    self.selectedReference = false;
     self.projectNameField.hidden = true;
     
     [self loadData];
@@ -58,10 +59,10 @@
         //controller.project = self.project;        set the current project
         
     }
-    self.selectedReference = false;
+//    self.selectedReference = false;
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    return ([identifier isEqualToString:@"referenceDetail"] && self.selectedReference) || [identifier isEqualToString:@"createReference"] || [identifier isEqualToString:@"editProject"];
+    return ([identifier isEqualToString:@"referenceDetail"] /*&& self.selectedReference*/) || [identifier isEqualToString:@"createReference"] || [identifier isEqualToString:@"editProject"];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
