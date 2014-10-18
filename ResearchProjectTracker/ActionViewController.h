@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 microsoft. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import <ADALiOS/ADAuthenticationContext.h>
 #import <ADALiOS/ADAuthenticationParameters.h>
 #import <ADALiOS/ADAuthenticationSettings.h>
 #import <ADALiOS/ADLogger.h>

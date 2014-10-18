@@ -1,7 +1,5 @@
 #import "ViewController.h"
 #import "ProjectTableViewController.h"
-#import "office365-base-sdk/Credentials.h"
-#import <office365-base-sdk/LoginClient.h>
 #import <QuartzCore/QuartzCore.h>
 @interface ViewController ()
             
@@ -15,7 +13,6 @@ NSString* authority;
 NSString* redirectUriString;
 NSString* resourceId;
 NSString* clientId;
-Credentials* credentials;
 NSString* token;
 
 //ViewController actions
@@ -52,9 +49,7 @@ NSString* token;
 }
 
 - (void) performLogin : (BOOL) clearCache{
-    
-    LoginClient *client = [[LoginClient alloc] initWithParameters:clientId:redirectUriString:resourceId:authority];
-    [client login:clearCache completionHandler:^(NSString *t, NSError *e) {
+    [self getToken:NO completionHandler:^(NSString *t, NSError *e) {
         if(e == nil)
         {
             token = t;
@@ -69,24 +64,69 @@ NSString* token;
             NSString *errorMessage = [@"Login failed. Reason: " stringByAppendingString: e.description];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
             [alert show];
-        }        
+        }
     }];
 }
 
+-(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*, NSError *e))completionBlock;
+{
+    ADAuthenticationError *error;
+    authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority
+                                                                        error:&error];
+    
+    NSURL *redirectUri = [NSURL URLWithString:redirectUriString];
+    
+    if(clearCache){
+        [authContext.tokenCacheStore removeAllWithError: &error];
+    }
+    
+    [authContext acquireTokenWithResource:resourceId
+                                 clientId:clientId
+                              redirectUri:redirectUri
+                          completionBlock:^(ADAuthenticationResult *result) {
+                              if (AD_SUCCEEDED != result.status){
+                                  completionBlock(nil, result.error);
+                              }
+                              else{
+                                  completionBlock(result.accessToken, nil);
+                              }
+                          }];
+}
+
 - (IBAction)Clear:(id)sender {
-    NSError *error;
-    LoginClient *client = [[LoginClient alloc] initWithParameters: clientId: redirectUriString:resourceId :authority];
+    ADAuthenticationError* error;
+    id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
+    NSArray* allItems = [cache allItemsWithError:&error];
     
-    [client clearCredentials: &error];
-    
-    if(error != nil){
-        NSString *errorMessage = [@"Clear credentials failed. Reason: " stringByAppendingString: error.description];
-        [self showOkOnlyAlert:errorMessage : @"Error"];
-    }
-    else
+    if (allItems.count > 0)
     {
-        [self showOkOnlyAlert:@"Clear credentials success." : @"Success"];
+        [cache removeAllWithError:&error];
     }
+    
+    if (error)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *errorMessage = [@"Clear caché failed. Reason: " stringByAppendingString: error.errorDetails];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+        });
+        return;
+    }
+    
+    NSHTTPCookieStorage* cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray* cookies = cookieStorage.cookies;
+    if (cookies.count)
+    {
+        for(NSHTTPCookie* cookie in cookies)
+        {
+            [cookieStorage deleteCookie:cookie];
+        }
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Cookies Cleared" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    });
 }
 
 -(void) showOkOnlyAlert : (NSString*) message : (NSString*) title{
