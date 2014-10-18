@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3C88DE7E1958BB0E00D105A6 /* file_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C88DE781958BB0E00D105A6 /* file_app.xcdatamodeld */; };
-		8D52139419F2C90E00F159FB /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D52138C19F2C90E00F159FB /* ADALiOSBundle-Info.plist */; };
-		8D52139519F2C90E00F159FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D52138E19F2C90E00F159FB /* InfoPlist.strings */; };
-		8D52139619F2C90E00F159FB /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D52138F19F2C90E00F159FB /* ADAL_iPhone_Storyboard.storyboard */; };
-		8D52139719F2C90E00F159FB /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D52139019F2C90E00F159FB /* ADAL_iPad_Storyboard.storyboard */; };
-		8D52139A19F2C93500F159FB /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D52138719F2C8F200F159FB /* libADALiOS.a */; };
 		D92FE07819E408E400FBD6F8 /* EditProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92FE07719E408E400FBD6F8 /* EditProjectViewController.m */; };
 		D92FE08219E40AD400FBD6F8 /* EditReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92FE08119E40AD400FBD6F8 /* EditReferenceViewController.m */; };
 		D9373EDF19E6CBA600B77673 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9DE4ED419D5B80C00CCDEC5 /* Images.xcassets */; };
@@ -20,6 +15,16 @@
 		D93D393719DC7B96009ECCF6 /* ReferencesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D93D393619DC7B96009ECCF6 /* ReferencesTableViewCell.m */; };
 		D94CEC5F19D5C82300A52949 /* office365.png in Resources */ = {isa = PBXBuildFile; fileRef = D94CEC5E19D5C82300A52949 /* office365.png */; };
 		D94CEC6919D5E9ED00A52949 /* ProjectDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D94CEC6819D5E9ED00A52949 /* ProjectDetailsViewController.m */; };
+		D96A5D2E19E562BF00D2C5C4 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE4F0019D5B9F900CCDEC5 /* libADALiOS.a */; };
+		D96A5D2F19E562BF00D2C5C4 /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE4F0B19D5BA0200CCDEC5 /* liboffice365-base-sdk.a */; };
+		D96A5D3019E562BF00D2C5C4 /* liboffice365-exchange-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE4F1D19D5BA3100CCDEC5 /* liboffice365-exchange-sdk.a */; };
+		D96A5D3119E562BF00D2C5C4 /* liboffice365-files-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE4F2619D5BA3700CCDEC5 /* liboffice365-files-sdk.a */; };
+		D96A5D3219E562BF00D2C5C4 /* liboffice365-lists-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE4F2F19D5BA3F00CCDEC5 /* liboffice365-lists-sdk.a */; };
+		D96A5D3819E563E400D2C5C4 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D96A5D3419E563E400D2C5C4 /* ADALiOSBundle-Info.plist */; };
+		D96A5D3919E563E400D2C5C4 /* IPAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96A5D3619E563E400D2C5C4 /* IPAL_iPad_Storyboard.storyboard */; };
+		D96A5D3A19E563E400D2C5C4 /* IPAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96A5D3719E563E400D2C5C4 /* IPAL_iPhone_Storyboard.storyboard */; };
+		D96A5D3C19E563FF00D2C5C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D96A5D3B19E563FF00D2C5C4 /* InfoPlist.strings */; };
+		D96A5D3F19E5641C00D2C5C4 /* file_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D96A5D3D19E5641C00D2C5C4 /* file_app.xcdatamodeld */; };
 		D96A5D4219E57A3700D2C5C4 /* ProjectTableExtensionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D96A5D4119E57A3700D2C5C4 /* ProjectTableExtensionViewCell.m */; };
 		D96A5D4819E58D8600D2C5C4 /* ProjectClientEx.m in Sources */ = {isa = PBXBuildFile; fileRef = D96A5D4519E58D8600D2C5C4 /* ProjectClientEx.m */; };
 		D980170619DD9AFA00588BD1 /* ReferenceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D980170519DD9AFA00588BD1 /* ReferenceDetailsViewController.m */; };
@@ -29,6 +34,10 @@
 		D9A90E9F19E2B400001EA85E /* launch-image-ipad @2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A90E9C19E2B400001EA85E /* launch-image-ipad @2x.png */; };
 		D9A90EA019E2B400001EA85E /* launch-image-iphone @2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A90E9D19E2B400001EA85E /* launch-image-iphone @2x.png */; };
 		D9A90EA919E2B57C001EA85E /* wallpaper-image @2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A90EA819E2B57C001EA85E /* wallpaper-image @2x.png */; };
+		D9DE4EC819D5B10D00CCDEC5 /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DE4EC619D5B10D00CCDEC5 /* ADAL_iPad_Storyboard.storyboard */; };
+		D9DE4EC919D5B10D00CCDEC5 /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DE4EC719D5B10D00CCDEC5 /* ADAL_iPhone_Storyboard.storyboard */; };
+		D9DE4ECC19D5B11D00CCDEC5 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9DE4ECA19D5B11D00CCDEC5 /* ADALiOSBundle-Info.plist */; };
+		D9DE4ECF19D5B15A00CCDEC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9DE4ECD19D5B15A00CCDEC5 /* InfoPlist.strings */; };
 		D9DE4ED619D5B80C00CCDEC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DE4ED119D5B80C00CCDEC5 /* AppDelegate.m */; };
 		D9DE4ED819D5B80C00CCDEC5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9DE4ED419D5B80C00CCDEC5 /* Images.xcassets */; };
 		D9DE4ED919D5B80C00CCDEC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DE4ED519D5B80C00CCDEC5 /* Main.storyboard */; };
@@ -41,36 +50,125 @@
 		D9DE4EF319D5B8CD00CCDEC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DE4EF119D5B8CD00CCDEC5 /* main.m */; };
 		D9DE4EF619D5B93900CCDEC5 /* IPAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DE4EF419D5B93900CCDEC5 /* IPAL_iPad_Storyboard.storyboard */; };
 		D9DE4EF719D5B93900CCDEC5 /* IPAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DE4EF519D5B93900CCDEC5 /* IPAL_iPhone_Storyboard.storyboard */; };
+		D9DE4F3C19D5BA7600CCDEC5 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE4F0019D5B9F900CCDEC5 /* libADALiOS.a */; };
+		D9DE4F3D19D5BA7600CCDEC5 /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE4F0B19D5BA0200CCDEC5 /* liboffice365-base-sdk.a */; };
+		D9DE4F3E19D5BA7600CCDEC5 /* liboffice365-exchange-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE4F1D19D5BA3100CCDEC5 /* liboffice365-exchange-sdk.a */; };
+		D9DE4F3F19D5BA7600CCDEC5 /* liboffice365-files-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE4F2619D5BA3700CCDEC5 /* liboffice365-files-sdk.a */; };
+		D9DE4F4019D5BA7600CCDEC5 /* liboffice365-lists-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE4F2F19D5BA3F00CCDEC5 /* liboffice365-lists-sdk.a */; };
 		D9FC857D19E55C9D00C3B15C /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FC857C19E55C9D00C3B15C /* ActionViewController.m */; };
 		D9FC857F19E55C9D00C3B15C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FC857E19E55C9D00C3B15C /* MainInterface.storyboard */; };
 		D9FC858219E55C9D00C3B15C /* ResearchProjectTracker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D9FC857719E55C9D00C3B15C /* ResearchProjectTracker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8D52138619F2C8F200F159FB /* PBXContainerItemProxy */ = {
+		D9DE4EFF19D5B9F900CCDEC5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8D52137F19F2C8F200F159FB /* ADALiOS.xcodeproj */;
+			containerPortal = D9DE4EF819D5B9F900CCDEC5 /* ADALiOS.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8B0965AA17F25770002BDFB8;
 			remoteInfo = ADALiOS;
 		};
-		8D52138819F2C8F200F159FB /* PBXContainerItemProxy */ = {
+		D9DE4F0119D5B9F900CCDEC5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8D52137F19F2C8F200F159FB /* ADALiOS.xcodeproj */;
+			containerPortal = D9DE4EF819D5B9F900CCDEC5 /* ADALiOS.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8B0965BA17F25770002BDFB8;
 			remoteInfo = ADALiOSTests;
 		};
-		8D52138A19F2C8F200F159FB /* PBXContainerItemProxy */ = {
+		D9DE4F0319D5B9F900CCDEC5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8D52137F19F2C8F200F159FB /* ADALiOS.xcodeproj */;
+			containerPortal = D9DE4EF819D5B9F900CCDEC5 /* ADALiOS.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8BFEF05C182DA57800122C0C;
 			remoteInfo = ADALiOSBundle;
 		};
-		8D52139819F2C93000F159FB /* PBXContainerItemProxy */ = {
+		D9DE4F0A19D5BA0200CCDEC5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8D52137F19F2C8F200F159FB /* ADALiOS.xcodeproj */;
+			containerPortal = D9DE4F0519D5BA0200CCDEC5 /* office365-base-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC0535E1197D9109009D45F4;
+			remoteInfo = "office365-base-sdk";
+		};
+		D9DE4F0C19D5BA0200CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F0519D5BA0200CCDEC5 /* office365-base-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC0535F1197D9109009D45F4;
+			remoteInfo = "office365-base-sdkTests";
+		};
+		D9DE4F1C19D5BA3100CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F1719D5BA3000CCDEC5 /* office365-exchange-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECF3EBAF19A390E800D05D8B;
+			remoteInfo = "office365-exchange-sdk";
+		};
+		D9DE4F1E19D5BA3100CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F1719D5BA3000CCDEC5 /* office365-exchange-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECF3EBBF19A390E900D05D8B;
+			remoteInfo = "office365-exchange-sdkTests";
+		};
+		D9DE4F2519D5BA3700CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F2019D5BA3700CCDEC5 /* office365-files-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECE57141197EAFC200FDAE94;
+			remoteInfo = "office365-files-sdk";
+		};
+		D9DE4F2719D5BA3700CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F2019D5BA3700CCDEC5 /* office365-files-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECE57151197EAFC200FDAE94;
+			remoteInfo = "office365-files-sdkTests";
+		};
+		D9DE4F2E19D5BA3F00CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F2919D5BA3F00CCDEC5 /* office365-lists-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECE57188197EEAAE00FDAE94;
+			remoteInfo = "office365-lists-sdk";
+		};
+		D9DE4F3019D5BA3F00CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F2919D5BA3F00CCDEC5 /* office365-lists-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECE57198197EEAAE00FDAE94;
+			remoteInfo = "office365-lists-sdkTests";
+		};
+		D9DE4F3219D5BA6D00CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F0519D5BA0200CCDEC5 /* office365-base-sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EC0535E0197D9109009D45F4;
+			remoteInfo = "office365-base-sdk";
+		};
+		D9DE4F3419D5BA6D00CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F2919D5BA3F00CCDEC5 /* office365-lists-sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = ECE57187197EEAAE00FDAE94;
+			remoteInfo = "office365-lists-sdk";
+		};
+		D9DE4F3619D5BA6D00CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F2019D5BA3700CCDEC5 /* office365-files-sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = ECE57140197EAFC200FDAE94;
+			remoteInfo = "office365-files-sdk";
+		};
+		D9DE4F3819D5BA6D00CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F1719D5BA3000CCDEC5 /* office365-exchange-sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = ECF3EBAE19A390E800D05D8B;
+			remoteInfo = "office365-exchange-sdk";
+		};
+		D9DE4F3A19D5BA6D00CCDEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4EF819D5B9F900CCDEC5 /* ADALiOS.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8B0965A917F25770002BDFB8;
 			remoteInfo = ADALiOS;
@@ -88,6 +186,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = D9FC857619E55C9D00C3B15C;
 			remoteInfo = ResearchProjectTracker;
+		};
+		D9FC859019E5624700C3B15C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F0519D5BA0200CCDEC5 /* office365-base-sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EC0535E0197D9109009D45F4;
+			remoteInfo = "office365-base-sdk";
+		};
+		D9FC859219E5624700C3B15C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F2919D5BA3F00CCDEC5 /* office365-lists-sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = ECE57187197EEAAE00FDAE94;
+			remoteInfo = "office365-lists-sdk";
+		};
+		D9FC859419E5624700C3B15C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F2019D5BA3700CCDEC5 /* office365-files-sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = ECE57140197EAFC200FDAE94;
+			remoteInfo = "office365-files-sdk";
+		};
+		D9FC859619E5624700C3B15C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4F1719D5BA3000CCDEC5 /* office365-exchange-sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = ECF3EBAE19A390E800D05D8B;
+			remoteInfo = "office365-exchange-sdk";
+		};
+		D9FC859819E5624700C3B15C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9DE4EF819D5B9F900CCDEC5 /* ADALiOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B0965A917F25770002BDFB8;
+			remoteInfo = ADALiOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -108,12 +241,6 @@
 /* Begin PBXFileReference section */
 		3C88DE791958BB0E00D105A6 /* file_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = file_app.xcdatamodel; sourceTree = "<group>"; };
 		3CC805C91958BA4D00E9590E /* ResearchProjectTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResearchProjectTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D52137F19F2C8F200F159FB /* ADALiOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ADALiOS.xcodeproj; path = lib/ADALiOS/ADALiOS.xcodeproj; sourceTree = "<group>"; };
-		8D52138C19F2C90E00F159FB /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
-		8D52138D19F2C90E00F159FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8D52138F19F2C90E00F159FB /* ADAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ADAL_iPhone_Storyboard.storyboard; path = ../ADALiOS/ADAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
-		8D52139019F2C90E00F159FB /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ADAL_iPad_Storyboard.storyboard; path = ../ADALiOS/ADAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
-		8D52139119F2C90E00F159FB /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
 		D92FE07619E408E400FBD6F8 /* EditProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProjectViewController.h; path = ResearchProjectTrackerApp/EditProjectViewController.h; sourceTree = SOURCE_ROOT; };
 		D92FE07719E408E400FBD6F8 /* EditProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProjectViewController.m; path = ResearchProjectTrackerApp/EditProjectViewController.m; sourceTree = SOURCE_ROOT; };
 		D92FE08019E40AD400FBD6F8 /* EditReferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditReferenceViewController.h; path = ResearchProjectTrackerApp/EditReferenceViewController.h; sourceTree = SOURCE_ROOT; };
@@ -125,6 +252,12 @@
 		D94CEC5E19D5C82300A52949 /* office365.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = office365.png; sourceTree = SOURCE_ROOT; };
 		D94CEC6719D5E9ED00A52949 /* ProjectDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectDetailsViewController.h; path = ResearchProjectTrackerApp/ProjectDetailsViewController.h; sourceTree = SOURCE_ROOT; };
 		D94CEC6819D5E9ED00A52949 /* ProjectDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectDetailsViewController.m; path = ResearchProjectTrackerApp/ProjectDetailsViewController.m; sourceTree = SOURCE_ROOT; };
+		D96A5D3419E563E400D2C5C4 /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
+		D96A5D3519E563E400D2C5C4 /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
+		D96A5D3619E563E400D2C5C4 /* IPAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
+		D96A5D3719E563E400D2C5C4 /* IPAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		D96A5D3B19E563FF00D2C5C4 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		D96A5D3E19E5641C00D2C5C4 /* file_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = file_app.xcdatamodel; sourceTree = "<group>"; };
 		D96A5D4019E57A3700D2C5C4 /* ProjectTableExtensionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableExtensionViewCell.h; sourceTree = "<group>"; };
 		D96A5D4119E57A3700D2C5C4 /* ProjectTableExtensionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableExtensionViewCell.m; sourceTree = "<group>"; };
 		D96A5D4419E58D8600D2C5C4 /* ProjectClientEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectClientEx.h; sourceTree = "<group>"; };
@@ -139,6 +272,11 @@
 		D9A90E9C19E2B400001EA85E /* launch-image-ipad @2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-image-ipad @2x.png"; sourceTree = SOURCE_ROOT; };
 		D9A90E9D19E2B400001EA85E /* launch-image-iphone @2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-image-iphone @2x.png"; sourceTree = SOURCE_ROOT; };
 		D9A90EA819E2B57C001EA85E /* wallpaper-image @2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wallpaper-image @2x.png"; sourceTree = SOURCE_ROOT; };
+		D9DE4EC619D5B10D00CCDEC5 /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ADAL_iPad_Storyboard.storyboard; path = lib/ADALiOS/ADALiOS/ADAL_iPad_Storyboard.storyboard; sourceTree = SOURCE_ROOT; };
+		D9DE4EC719D5B10D00CCDEC5 /* ADAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ADAL_iPhone_Storyboard.storyboard; path = lib/ADALiOS/ADALiOS/ADAL_iPhone_Storyboard.storyboard; sourceTree = SOURCE_ROOT; };
+		D9DE4ECA19D5B11D00CCDEC5 /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ADALiOSBundle-Info.plist"; path = "lib/ADALiOS/ADALiOSBundle/ADALiOSBundle-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D9DE4ECB19D5B11D00CCDEC5 /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ADALiOSBundle-Prefix.pch"; path = "lib/ADALiOS/ADALiOSBundle/ADALiOSBundle-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		D9DE4ECE19D5B15A00CCDEC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = lib/ADALiOS/ADALiOSBundle/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		D9DE4ED019D5B80C00CCDEC5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ResearchProjectTrackerApp/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		D9DE4ED119D5B80C00CCDEC5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ResearchProjectTrackerApp/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		D9DE4ED419D5B80C00CCDEC5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ResearchProjectTrackerApp/Images.xcassets; sourceTree = SOURCE_ROOT; };
@@ -158,6 +296,11 @@
 		D9DE4EF119D5B8CD00CCDEC5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ResearchProjectTrackerApp/main.m; sourceTree = SOURCE_ROOT; };
 		D9DE4EF419D5B93900CCDEC5 /* IPAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IPAL_iPad_Storyboard.storyboard; path = ResearchProjectTrackerApp/IPAL_iPad_Storyboard.storyboard; sourceTree = SOURCE_ROOT; };
 		D9DE4EF519D5B93900CCDEC5 /* IPAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IPAL_iPhone_Storyboard.storyboard; path = ResearchProjectTrackerApp/IPAL_iPhone_Storyboard.storyboard; sourceTree = SOURCE_ROOT; };
+		D9DE4EF819D5B9F900CCDEC5 /* ADALiOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ADALiOS.xcodeproj; path = lib/ADALiOS/ADALiOS.xcodeproj; sourceTree = "<group>"; };
+		D9DE4F0519D5BA0200CCDEC5 /* office365-base-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "office365-base-sdk.xcodeproj"; path = "lib/office365-base-sdk/office365-base-sdk.xcodeproj"; sourceTree = "<group>"; };
+		D9DE4F1719D5BA3000CCDEC5 /* office365-exchange-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "office365-exchange-sdk.xcodeproj"; path = "lib/office365-exchange-sdk/office365-exchange-sdk.xcodeproj"; sourceTree = "<group>"; };
+		D9DE4F2019D5BA3700CCDEC5 /* office365-files-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "office365-files-sdk.xcodeproj"; path = "lib/office365-files-sdk/office365-files-sdk.xcodeproj"; sourceTree = "<group>"; };
+		D9DE4F2919D5BA3F00CCDEC5 /* office365-lists-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "office365-lists-sdk.xcodeproj"; path = "lib/office365-lists-sdk/office365-lists-sdk.xcodeproj"; sourceTree = "<group>"; };
 		D9DE4F4119D5BB7100CCDEC5 /* ResearchProjectApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ResearchProjectApp-Info.plist"; path = "ResearchProjectTrackerApp/ResearchProjectApp-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D9FC857719E55C9D00C3B15C /* ResearchProjectTracker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ResearchProjectTracker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FC857A19E55C9D00C3B15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,7 +314,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D52139A19F2C93500F159FB /* libADALiOS.a in Frameworks */,
+				D9DE4F3C19D5BA7600CCDEC5 /* libADALiOS.a in Frameworks */,
+				D9DE4F3D19D5BA7600CCDEC5 /* liboffice365-base-sdk.a in Frameworks */,
+				D9DE4F3E19D5BA7600CCDEC5 /* liboffice365-exchange-sdk.a in Frameworks */,
+				D9DE4F3F19D5BA7600CCDEC5 /* liboffice365-files-sdk.a in Frameworks */,
+				D9DE4F4019D5BA7600CCDEC5 /* liboffice365-lists-sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,12 +326,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96A5D2E19E562BF00D2C5C4 /* libADALiOS.a in Frameworks */,
+				D96A5D2F19E562BF00D2C5C4 /* liboffice365-base-sdk.a in Frameworks */,
+				D96A5D3019E562BF00D2C5C4 /* liboffice365-exchange-sdk.a in Frameworks */,
+				D96A5D3119E562BF00D2C5C4 /* liboffice365-files-sdk.a in Frameworks */,
+				D96A5D3219E562BF00D2C5C4 /* liboffice365-lists-sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C2B76EA19991661006156A3 /* ADALiOSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				D9DE4EC619D5B10D00CCDEC5 /* ADAL_iPad_Storyboard.storyboard */,
+				D9DE4EC719D5B10D00CCDEC5 /* ADAL_iPhone_Storyboard.storyboard */,
+				D9DE4ECA19D5B11D00CCDEC5 /* ADALiOSBundle-Info.plist */,
+				D9DE4ECB19D5B11D00CCDEC5 /* ADALiOSBundle-Prefix.pch */,
+				D9DE4ECD19D5B15A00CCDEC5 /* InfoPlist.strings */,
+			);
+			name = ADALiOSBundle;
+			path = ../ADALiOSBundle;
+			sourceTree = "<group>";
+		};
 		3C88DE811958BB1900D105A6 /* ADALiOSBundle */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,12 +366,16 @@
 		3CC805C01958BA4D00E9590E = {
 			isa = PBXGroup;
 			children = (
-				8D52139319F2C90E00F159FB /* ADALiOSBundle */,
+				3C2B76EA19991661006156A3 /* ADALiOSBundle */,
 				ECF2F6E51975A2C800F74623 /* Frameworks */,
 				3CC805CB1958BA4D00E9590E /* ResearchProjectTrackerApp */,
 				D9FC857819E55C9D00C3B15C /* ResearchProjectTrackerExtension */,
 				3CC805CA1958BA4D00E9590E /* Products */,
-				8D52137F19F2C8F200F159FB /* ADALiOS.xcodeproj */,
+				D9DE4F0519D5BA0200CCDEC5 /* office365-base-sdk.xcodeproj */,
+				D9DE4F2919D5BA3F00CCDEC5 /* office365-lists-sdk.xcodeproj */,
+				D9DE4F2019D5BA3700CCDEC5 /* office365-files-sdk.xcodeproj */,
+				D9DE4F1719D5BA3000CCDEC5 /* office365-exchange-sdk.xcodeproj */,
+				D9DE4EF819D5B9F900CCDEC5 /* ADALiOS.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,29 +427,6 @@
 				D9373ED419E6A7E600B77673 /* Login */,
 			);
 			name = controllers;
-			sourceTree = "<group>";
-		};
-		8D52138019F2C8F200F159FB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8D52138719F2C8F200F159FB /* libADALiOS.a */,
-				8D52138919F2C8F200F159FB /* ADALiOSTests.xctest */,
-				8D52138B19F2C8F200F159FB /* ADALiOS.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		8D52139319F2C90E00F159FB /* ADALiOSBundle */ = {
-			isa = PBXGroup;
-			children = (
-				8D52138C19F2C90E00F159FB /* ADALiOSBundle-Info.plist */,
-				8D52138E19F2C90E00F159FB /* InfoPlist.strings */,
-				8D52138F19F2C90E00F159FB /* ADAL_iPhone_Storyboard.storyboard */,
-				8D52139019F2C90E00F159FB /* ADAL_iPad_Storyboard.storyboard */,
-				8D52139119F2C90E00F159FB /* ADALiOSBundle-Prefix.pch */,
-			);
-			name = ADALiOSBundle;
-			path = lib/ADALiOS/ADALiOSBundle;
 			sourceTree = "<group>";
 		};
 		D9373ED419E6A7E600B77673 /* Login */ = {
@@ -335,6 +481,19 @@
 			name = client;
 			sourceTree = "<group>";
 		};
+		D96A5D3319E5638F00D2C5C4 /* ADALiOSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				D96A5D3D19E5641C00D2C5C4 /* file_app.xcdatamodeld */,
+				D96A5D3419E563E400D2C5C4 /* ADALiOSBundle-Info.plist */,
+				D96A5D3519E563E400D2C5C4 /* ADALiOSBundle-Prefix.pch */,
+				D96A5D3619E563E400D2C5C4 /* IPAL_iPad_Storyboard.storyboard */,
+				D96A5D3719E563E400D2C5C4 /* IPAL_iPhone_Storyboard.storyboard */,
+				D96A5D3B19E563FF00D2C5C4 /* InfoPlist.strings */,
+			);
+			name = ADALiOSBundle;
+			sourceTree = "<group>";
+		};
 		D96A5D4319E58D8600D2C5C4 /* client */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +501,52 @@
 				D96A5D4519E58D8600D2C5C4 /* ProjectClientEx.m */,
 			);
 			path = client;
+			sourceTree = "<group>";
+		};
+		D9DE4EF919D5B9F900CCDEC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9DE4F0019D5B9F900CCDEC5 /* libADALiOS.a */,
+				D9DE4F0219D5B9F900CCDEC5 /* ADALiOSTests.xctest */,
+				D9DE4F0419D5B9F900CCDEC5 /* ADALiOS.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9DE4F0619D5BA0200CCDEC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9DE4F0B19D5BA0200CCDEC5 /* liboffice365-base-sdk.a */,
+				D9DE4F0D19D5BA0200CCDEC5 /* office365-base-sdkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9DE4F1819D5BA3000CCDEC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9DE4F1D19D5BA3100CCDEC5 /* liboffice365-exchange-sdk.a */,
+				D9DE4F1F19D5BA3100CCDEC5 /* office365-exchange-sdkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9DE4F2119D5BA3700CCDEC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9DE4F2619D5BA3700CCDEC5 /* liboffice365-files-sdk.a */,
+				D9DE4F2819D5BA3700CCDEC5 /* office365-files-sdkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9DE4F2A19D5BA3F00CCDEC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9DE4F2F19D5BA3F00CCDEC5 /* liboffice365-lists-sdk.a */,
+				D9DE4F3119D5BA3F00CCDEC5 /* office365-lists-sdkTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		D9FC857819E55C9D00C3B15C /* ResearchProjectTrackerExtension */ = {
@@ -362,6 +567,7 @@
 			isa = PBXGroup;
 			children = (
 				D96A5D4319E58D8600D2C5C4 /* client */,
+				D96A5D3319E5638F00D2C5C4 /* ADALiOSBundle */,
 				D9FC857A19E55C9D00C3B15C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -389,7 +595,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				8D52139919F2C93000F159FB /* PBXTargetDependency */,
+				D9DE4F3319D5BA6D00CCDEC5 /* PBXTargetDependency */,
+				D9DE4F3519D5BA6D00CCDEC5 /* PBXTargetDependency */,
+				D9DE4F3719D5BA6D00CCDEC5 /* PBXTargetDependency */,
+				D9DE4F3919D5BA6D00CCDEC5 /* PBXTargetDependency */,
+				D9DE4F3B19D5BA6D00CCDEC5 /* PBXTargetDependency */,
 				D9FC858119E55C9D00C3B15C /* PBXTargetDependency */,
 				D9FC858419E55C9D00C3B15C /* PBXTargetDependency */,
 			);
@@ -409,6 +619,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				D9FC859119E5624700C3B15C /* PBXTargetDependency */,
+				D9FC859319E5624700C3B15C /* PBXTargetDependency */,
+				D9FC859519E5624700C3B15C /* PBXTargetDependency */,
+				D9FC859719E5624700C3B15C /* PBXTargetDependency */,
+				D9FC859919E5624700C3B15C /* PBXTargetDependency */,
 			);
 			name = ResearchProjectTracker;
 			productName = ResearchProjectTracker;
@@ -445,8 +660,24 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8D52138019F2C8F200F159FB /* Products */;
-					ProjectRef = 8D52137F19F2C8F200F159FB /* ADALiOS.xcodeproj */;
+					ProductGroup = D9DE4EF919D5B9F900CCDEC5 /* Products */;
+					ProjectRef = D9DE4EF819D5B9F900CCDEC5 /* ADALiOS.xcodeproj */;
+				},
+				{
+					ProductGroup = D9DE4F0619D5BA0200CCDEC5 /* Products */;
+					ProjectRef = D9DE4F0519D5BA0200CCDEC5 /* office365-base-sdk.xcodeproj */;
+				},
+				{
+					ProductGroup = D9DE4F1819D5BA3000CCDEC5 /* Products */;
+					ProjectRef = D9DE4F1719D5BA3000CCDEC5 /* office365-exchange-sdk.xcodeproj */;
+				},
+				{
+					ProductGroup = D9DE4F2119D5BA3700CCDEC5 /* Products */;
+					ProjectRef = D9DE4F2019D5BA3700CCDEC5 /* office365-files-sdk.xcodeproj */;
+				},
+				{
+					ProductGroup = D9DE4F2A19D5BA3F00CCDEC5 /* Products */;
+					ProjectRef = D9DE4F2919D5BA3F00CCDEC5 /* office365-lists-sdk.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -458,25 +689,81 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8D52138719F2C8F200F159FB /* libADALiOS.a */ = {
+		D9DE4F0019D5B9F900CCDEC5 /* libADALiOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libADALiOS.a;
-			remoteRef = 8D52138619F2C8F200F159FB /* PBXContainerItemProxy */;
+			remoteRef = D9DE4EFF19D5B9F900CCDEC5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8D52138919F2C8F200F159FB /* ADALiOSTests.xctest */ = {
+		D9DE4F0219D5B9F900CCDEC5 /* ADALiOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ADALiOSTests.xctest;
-			remoteRef = 8D52138819F2C8F200F159FB /* PBXContainerItemProxy */;
+			remoteRef = D9DE4F0119D5B9F900CCDEC5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8D52138B19F2C8F200F159FB /* ADALiOS.bundle */ = {
+		D9DE4F0419D5B9F900CCDEC5 /* ADALiOS.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ADALiOS.bundle;
-			remoteRef = 8D52138A19F2C8F200F159FB /* PBXContainerItemProxy */;
+			remoteRef = D9DE4F0319D5B9F900CCDEC5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9DE4F0B19D5BA0200CCDEC5 /* liboffice365-base-sdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "liboffice365-base-sdk.a";
+			remoteRef = D9DE4F0A19D5BA0200CCDEC5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9DE4F0D19D5BA0200CCDEC5 /* office365-base-sdkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "office365-base-sdkTests.xctest";
+			remoteRef = D9DE4F0C19D5BA0200CCDEC5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9DE4F1D19D5BA3100CCDEC5 /* liboffice365-exchange-sdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "liboffice365-exchange-sdk.a";
+			remoteRef = D9DE4F1C19D5BA3100CCDEC5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9DE4F1F19D5BA3100CCDEC5 /* office365-exchange-sdkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "office365-exchange-sdkTests.xctest";
+			remoteRef = D9DE4F1E19D5BA3100CCDEC5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9DE4F2619D5BA3700CCDEC5 /* liboffice365-files-sdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "liboffice365-files-sdk.a";
+			remoteRef = D9DE4F2519D5BA3700CCDEC5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9DE4F2819D5BA3700CCDEC5 /* office365-files-sdkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "office365-files-sdkTests.xctest";
+			remoteRef = D9DE4F2719D5BA3700CCDEC5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9DE4F2F19D5BA3F00CCDEC5 /* liboffice365-lists-sdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "liboffice365-lists-sdk.a";
+			remoteRef = D9DE4F2E19D5BA3F00CCDEC5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D9DE4F3119D5BA3F00CCDEC5 /* office365-lists-sdkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "office365-lists-sdkTests.xctest";
+			remoteRef = D9DE4F3019D5BA3F00CCDEC5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -488,18 +775,18 @@
 			files = (
 				D9A90E9F19E2B400001EA85E /* launch-image-ipad @2x.png in Resources */,
 				D9A90E9E19E2B400001EA85E /* app-icon @2x.png in Resources */,
+				D9DE4ECC19D5B11D00CCDEC5 /* ADALiOSBundle-Info.plist in Resources */,
 				D9DE4ED919D5B80C00CCDEC5 /* Main.storyboard in Resources */,
-				8D52139519F2C90E00F159FB /* InfoPlist.strings in Resources */,
+				D9DE4EC919D5B10D00CCDEC5 /* ADAL_iPhone_Storyboard.storyboard in Resources */,
 				D9A90EA019E2B400001EA85E /* launch-image-iphone @2x.png in Resources */,
 				D9DE4EF619D5B93900CCDEC5 /* IPAL_iPad_Storyboard.storyboard in Resources */,
-				8D52139619F2C90E00F159FB /* ADAL_iPhone_Storyboard.storyboard in Resources */,
 				D9A90EA919E2B57C001EA85E /* wallpaper-image @2x.png in Resources */,
-				8D52139419F2C90E00F159FB /* ADALiOSBundle-Info.plist in Resources */,
-				8D52139719F2C90E00F159FB /* ADAL_iPad_Storyboard.storyboard in Resources */,
+				D9DE4EC819D5B10D00CCDEC5 /* ADAL_iPad_Storyboard.storyboard in Resources */,
 				D94CEC5F19D5C82300A52949 /* office365.png in Resources */,
 				D9DE4ED819D5B80C00CCDEC5 /* Images.xcassets in Resources */,
 				D9DE4EF219D5B8CD00CCDEC5 /* Info.plist in Resources */,
 				D9DE4EF719D5B93900CCDEC5 /* IPAL_iPhone_Storyboard.storyboard in Resources */,
+				D9DE4ECF19D5B15A00CCDEC5 /* InfoPlist.strings in Resources */,
 				D9DE4EEB19D5B87D00CCDEC5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,7 +796,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9373EDF19E6CBA600B77673 /* Images.xcassets in Resources */,
+				D96A5D3A19E563E400D2C5C4 /* IPAL_iPhone_Storyboard.storyboard in Resources */,
+				D96A5D3919E563E400D2C5C4 /* IPAL_iPad_Storyboard.storyboard in Resources */,
+				D96A5D3819E563E400D2C5C4 /* ADALiOSBundle-Info.plist in Resources */,
 				D9FC857F19E55C9D00C3B15C /* MainInterface.storyboard in Resources */,
+				D96A5D3C19E563FF00D2C5C4 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +835,7 @@
 			files = (
 				D96A5D4819E58D8600D2C5C4 /* ProjectClientEx.m in Sources */,
 				D9FC857D19E55C9D00C3B15C /* ActionViewController.m in Sources */,
+				D96A5D3F19E5641C00D2C5C4 /* file_app.xcdatamodeld in Sources */,
 				D96A5D4219E57A3700D2C5C4 /* ProjectTableExtensionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,10 +843,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8D52139919F2C93000F159FB /* PBXTargetDependency */ = {
+		D9DE4F3319D5BA6D00CCDEC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "office365-base-sdk";
+			targetProxy = D9DE4F3219D5BA6D00CCDEC5 /* PBXContainerItemProxy */;
+		};
+		D9DE4F3519D5BA6D00CCDEC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "office365-lists-sdk";
+			targetProxy = D9DE4F3419D5BA6D00CCDEC5 /* PBXContainerItemProxy */;
+		};
+		D9DE4F3719D5BA6D00CCDEC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "office365-files-sdk";
+			targetProxy = D9DE4F3619D5BA6D00CCDEC5 /* PBXContainerItemProxy */;
+		};
+		D9DE4F3919D5BA6D00CCDEC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "office365-exchange-sdk";
+			targetProxy = D9DE4F3819D5BA6D00CCDEC5 /* PBXContainerItemProxy */;
+		};
+		D9DE4F3B19D5BA6D00CCDEC5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ADALiOS;
-			targetProxy = 8D52139819F2C93000F159FB /* PBXContainerItemProxy */;
+			targetProxy = D9DE4F3A19D5BA6D00CCDEC5 /* PBXContainerItemProxy */;
 		};
 		D9FC858119E55C9D00C3B15C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -566,13 +878,38 @@
 			target = D9FC857619E55C9D00C3B15C /* ResearchProjectTracker */;
 			targetProxy = D9FC858319E55C9D00C3B15C /* PBXContainerItemProxy */;
 		};
+		D9FC859119E5624700C3B15C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "office365-base-sdk";
+			targetProxy = D9FC859019E5624700C3B15C /* PBXContainerItemProxy */;
+		};
+		D9FC859319E5624700C3B15C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "office365-lists-sdk";
+			targetProxy = D9FC859219E5624700C3B15C /* PBXContainerItemProxy */;
+		};
+		D9FC859519E5624700C3B15C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "office365-files-sdk";
+			targetProxy = D9FC859419E5624700C3B15C /* PBXContainerItemProxy */;
+		};
+		D9FC859719E5624700C3B15C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "office365-exchange-sdk";
+			targetProxy = D9FC859619E5624700C3B15C /* PBXContainerItemProxy */;
+		};
+		D9FC859919E5624700C3B15C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ADALiOS;
+			targetProxy = D9FC859819E5624700C3B15C /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8D52138E19F2C90E00F159FB /* InfoPlist.strings */ = {
+		D9DE4ECD19D5B15A00CCDEC5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8D52138D19F2C90E00F159FB /* en */,
+				D9DE4ECE19D5B15A00CCDEC5 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -767,6 +1104,16 @@
 				3C88DE791958BB0E00D105A6 /* file_app.xcdatamodel */,
 			);
 			currentVersion = 3C88DE791958BB0E00D105A6 /* file_app.xcdatamodel */;
+			path = file_app.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		D96A5D3D19E5641C00D2C5C4 /* file_app.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D96A5D3E19E5641C00D2C5C4 /* file_app.xcdatamodel */,
+			);
+			currentVersion = D96A5D3E19E5641C00D2C5C4 /* file_app.xcdatamodel */;
 			path = file_app.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

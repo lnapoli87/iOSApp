@@ -1,4 +1,4 @@
-/*#import "office365-lists-sdk/ListClient.h"
+#import "office365-lists-sdk/ListClient.h"
 #import "office365-lists-sdk/ListItem.h"
 
 @interface ProjectClient : ListClient
@@ -10,4 +10,3 @@
 - (NSURLSessionDataTask *)updateReference:(ListItem *)reference callback:(void (^)(BOOL, NSError *))callback;
 - (NSURLSessionDataTask *)deleteListItem:(NSString *)name itemId:(NSString *)itemId callback:(void (^)(BOOL result, NSError *error))callback;
 @end
-*/

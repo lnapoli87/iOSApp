@@ -163,10 +163,6 @@ NSTimer *timer;
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    
-    if (timer != nil){
-        [timer invalidate];
-    }
 #pragma unused(webView)
     timer = [NSTimer scheduledTimerWithTimeInterval:_timeout target:self selector:@selector(failWithTimeout) userInfo:nil repeats:NO];
 }
@@ -175,7 +171,6 @@ NSTimer *timer;
 {
 #pragma unused(webView)
     [timer invalidate];
-    timer = nil;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -183,7 +178,6 @@ NSTimer *timer;
 #pragma unused(webView)
     if(timer && [timer isValid]){
         [timer invalidate];
-        timer = nil;
     }
     
     if (NSURLErrorCancelled == error.code)
