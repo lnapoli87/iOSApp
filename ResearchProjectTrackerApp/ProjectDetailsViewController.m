@@ -1,5 +1,4 @@
 #import "ProjectDetailsViewController.h"
-#import "ProjectClient.h"
 #import "ReferencesTableViewCell.h"
 #import "ReferenceDetailsViewController.h"
 #import "CreateReferenceViewController.h"

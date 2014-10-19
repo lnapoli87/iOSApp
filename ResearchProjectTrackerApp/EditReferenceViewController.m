@@ -1,5 +1,4 @@
 #import "EditReferenceViewController.h"
-#import "ProjectClient.h"
 #import "office365-base-sdk/OAuthentication.h"
 #import "ProjectDetailsViewController.h"
 
