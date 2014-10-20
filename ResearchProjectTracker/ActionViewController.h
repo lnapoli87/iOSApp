@@ -1,8 +1,4 @@
 //
-//  ActionViewController.h
-//  ResearchProjectTracker
-//
-//  Created by Lucas Damian Napoli on 08/10/14.
 //  Copyright (c) 2014 microsoft. All rights reserved.
 //
 #import <Foundation/Foundation.h>

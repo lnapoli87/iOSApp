@@ -28,7 +28,7 @@
 {
     [super didReceiveMemoryWarning];
 }
-//ViewControllerActions
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,7 +44,7 @@
     if ([segue.identifier isEqualToString:@"editReference"]){
         EditReferenceViewController *controller = (EditReferenceViewController *)segue.destinationViewController;
         controller.token = self.token;
-        //controller.selectedReference = self.selectedReference;        set the current reference
+        
     }
 }
 

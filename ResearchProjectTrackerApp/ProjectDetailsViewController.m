@@ -4,7 +4,7 @@
 #import "CreateReferenceViewController.h"
 #import "EditProjectViewController.h"
 
-//#import "office365-base-sdk/OAuthentication.h"
+
 
 @implementation ProjectDetailsViewController
 
@@ -15,7 +15,7 @@
     self.projectName.text = @"aProject";
     self.navigationItem.title = @"aProject";
     self.navigationItem.rightBarButtonItem.title = @"Done";
-//    self.selectedReference = false;
+
     self.projectNameField.hidden = true;
     
     [self loadData];
@@ -43,25 +43,22 @@
         CreateReferenceViewController *controller = (CreateReferenceViewController *)segue.destinationViewController;
         
         controller.token = self.token;
-        //controller.project = self.project;        set the current project
         
     }else if([segue.identifier isEqualToString:@"referenceDetail"]){
         ReferenceDetailsViewController *controller = (ReferenceDetailsViewController *)segue.destinationViewController;
         
         controller.token = self.token;
-        //controller.selectedReference = self.selectedReference;        set the current reference
         
     }else if([segue.identifier isEqualToString:@"editProject"]){
         EditProjectViewController *controller = (EditProjectViewController *)segue.destinationViewController;
 
         controller.token = self.token;
-        //controller.project = self.project;        set the current project
         
     }
-//    self.selectedReference = false;
+
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    return ([identifier isEqualToString:@"referenceDetail"] /*&& self.selectedReference*/) || [identifier isEqualToString:@"createReference"] || [identifier isEqualToString:@"editProject"];
+    return ([identifier isEqualToString:@"referenceDetail"]) || [identifier isEqualToString:@"createReference"] || [identifier isEqualToString:@"editProject"];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

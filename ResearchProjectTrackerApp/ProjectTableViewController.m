@@ -2,16 +2,11 @@
 #import "ProjectTableViewCell.h"
 #import "ProjectDetailsViewController.h"
 
-//#import "office365-lists-sdk/ListClient.h"
-//#import "office365-lists-sdk/ListItem.h"
-//#import "office365-base-sdk/OAuthentication.h"
-
 @implementation ProjectTableViewController
 
 UIView* popUpView;
 UILabel* popUpLabel;
 UIView* blockerPanel;
-//ListItem* currentEntity;
 NSURLSessionDownloadTask* task;
 
 #pragma mark Default Methods
@@ -70,7 +65,6 @@ NSURLSessionDownloadTask* task;
         controller.token = self.token;
     }else if([segue.identifier isEqualToString:@"detail"]){
         ProjectDetailsViewController *controller = (ProjectDetailsViewController *)segue.destinationViewController;
-        //controller.project = currentEntity;       Here set the current selected project
         controller.token = self.token;
     }
     
