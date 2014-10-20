@@ -1,6 +1,7 @@
 //
-//  Copyright (c) 2014 microsoft. All rights reserved.
+//  Copyright (c) 2014 MS-OpenTech All rights reserved.
 //
+
 #import "ProjectTableExtensionViewCell.h"
 #import "office365-base-sdk/Credentials.h"
 #import <office365-base-sdk/LoginClient.h>

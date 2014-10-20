@@ -1,3 +1,7 @@
+//
+//  Copyright (c) 2014 MS-OpenTech All rights reserved.
+//
+
 #import "ReferenceDetailsViewController.h"
 #import "ReferenceDetailTableCellTableViewCell.h"
 #import "EditReferenceViewController.h"

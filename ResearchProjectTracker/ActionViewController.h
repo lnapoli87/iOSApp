@@ -1,6 +1,7 @@
 //
-//  Copyright (c) 2014 microsoft. All rights reserved.
+//  Copyright (c) 2014 MS-OpenTech All rights reserved.
 //
+
 #import <Foundation/Foundation.h>
 #import <ADALiOS/ADAuthenticationContext.h>
 #import <ADALiOS/ADAuthenticationParameters.h>

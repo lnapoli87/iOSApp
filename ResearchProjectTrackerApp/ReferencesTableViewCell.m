@@ -1,3 +1,7 @@
+//
+//  Copyright (c) 2014 MS-OpenTech All rights reserved.
+//
+
 #import "ReferencesTableViewCell.h"
 
 @implementation ReferencesTableViewCell

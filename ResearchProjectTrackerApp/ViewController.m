@@ -1,3 +1,7 @@
+//
+//  Copyright (c) 2014 MS-OpenTech All rights reserved.
+//
+
 #import "ViewController.h"
 #import "ProjectTableViewController.h"
 #import "office365-base-sdk/Credentials.h"

@@ -1,3 +1,7 @@
+//
+//  Copyright (c) 2014 MS-OpenTech All rights reserved.
+//
+
 #import "ViewController.h"
 
 @interface EditReferenceViewController : ViewController

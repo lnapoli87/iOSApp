@@ -1,3 +1,7 @@
+//
+//  Copyright (c) 2014 MS-OpenTech All rights reserved.
+//
+
 #import "EditReferenceViewController.h"
 #import "office365-base-sdk/OAuthentication.h"
 #import "ProjectDetailsViewController.h"

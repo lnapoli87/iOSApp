@@ -1,3 +1,7 @@
+//
+//  Copyright (c) 2014 MS-OpenTech All rights reserved.
+//
+
 #import "ProjectDetailsViewController.h"
 #import "ReferencesTableViewCell.h"
 #import "ReferenceDetailsViewController.h"
