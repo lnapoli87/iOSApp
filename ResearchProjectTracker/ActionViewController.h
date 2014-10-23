@@ -1,7 +1,10 @@
 //
-//  Copyright (c) 2014 MS-OpenTech All rights reserved.
+//  ActionViewController.h
+//  ResearchProjectTracker
 //
-
+//  Created by Lucas Damian Napoli on 08/10/14.
+//  Copyright (c) 2014 microsoft. All rights reserved.
+//
 #import <Foundation/Foundation.h>
 #import <ADALiOS/ADAuthenticationContext.h>
 #import <ADALiOS/ADAuthenticationParameters.h>

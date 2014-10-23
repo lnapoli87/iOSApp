@@ -1,7 +1,3 @@
-//
-//  Copyright (c) 2014 MS-OpenTech All rights reserved.
-//
-
 #import "ProjectTableExtensionViewCell.h"
 
 @implementation ProjectTableExtensionViewCell

@@ -1,12 +1,9 @@
-//
-//  Copyright (c) 2014 MS-OpenTech All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import "CreateViewController.h"
 
-@interface ProjectTableViewController : UITableViewController
+@interface ProjectTableViewController : UIViewController
 
 @property NSMutableArray *projectsList;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSString* token;
 @end

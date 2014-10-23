@@ -1,11 +1,17 @@
 //
-//  Copyright (c) 2014 MS-OpenTech All rights reserved.
+//  ActionViewController.m
+//  ResearchProjectTracker
 //
-
+//  Created by Lucas Damian Napoli on 08/10/14.
+//  Copyright (c) 2014 microsoft. All rights reserved.
+//
 #import "ProjectTableExtensionViewCell.h"
 #import "office365-base-sdk/Credentials.h"
 #import <office365-base-sdk/LoginClient.h>
 #import <office365-base-sdk/OAuthentication.h>
+#import "ProjectClientEx.h"
+#import <office365-lists-sdk/ListItem.h>
+#import <office365-lists-sdk/ListEntity.h>
 #import <QuartzCore/QuartzCore.h>
 #import "ActionViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -25,18 +31,11 @@ NSString* resourceId;
 NSString* clientId;
 Credentials* credentials;
 NSString* token;
+ListItem* currentEntity;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    authority = [NSString alloc];
-    resourceId = [NSString alloc];
-    clientId = [NSString alloc];
-    redirectUriString = [NSString alloc];
-    authority = @"https://login.windows.net/common";
-    resourceId = @"https://foxintergen.sharepoint.com";
-    clientId = @"13b04d26-95fc-4fb4-a67e-c850e07822a8";
-    redirectUriString = @"http://android/complete";
     token = [NSString alloc];
     
     for (NSExtensionItem *item in self.extensionContext.inputItems) {
@@ -68,7 +67,7 @@ NSString* token;
 
 - (void) performLogin : (BOOL) clearCache{
     
-    LoginClient *client = [[LoginClient alloc] initWithParameters:clientId:redirectUriString:resourceId:authority];
+    LoginClient *client = [ProjectClientEx getLoginClient];
     [client login:clearCache completionHandler:^(NSString *t, NSError *e) {
         if(e == nil)
         {
@@ -100,14 +99,60 @@ NSString* token;
 
 
 -(void)loadData{
+    //Create and add a spinner
+    UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:spinner];
+    spinner.hidesWhenStopped = YES;
+    [spinner startAnimating];
+    
+    ProjectClientEx *client = [ProjectClientEx getClient: token];
+    
+    NSURLSessionTask* task = [client getList:@"Research Projects" callback:^(ListEntity *list, NSError *error) {
+        
+        //If list doesn't exists, create one with name Research Projects
+        if(list){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self getProjectsFromList:spinner];
+            });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self createProjectList:spinner];
+            });
+        }
+        
+    }];
+    [task resume];
 }
 
 
 -(void)getProjectsFromList:(UIActivityIndicatorView *) spinner{
+    ProjectClientEx *client = [ProjectClientEx getClient: token];
+    
+    NSURLSessionTask* listProjectsTask = [client getListItems:@"Research Projects" callback:^(NSMutableArray *listItems, NSError *error) {
+        if(!error){
+            self.projectsList = listItems;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.projectTable reloadData];
+                [spinner stopAnimating];
+            });
+        }
+    }];
+    [listProjectsTask resume];
 }
 
 
 -(void)createProjectList:(UIActivityIndicatorView *) spinner{
+    ProjectClientEx *client = [ProjectClientEx getClient: token];
+    
+    ListEntity* newList = [[ListEntity alloc ] init];
+    [newList setTitle:@"Research Projects"];
+    
+    NSURLSessionTask* createProjectListTask = [client createList:newList :^(ListEntity *list, NSError *error) {
+        [spinner stopAnimating];
+    }];
+    [createProjectListTask resume];
 }
 
 - (IBAction)Login:(id)sender {
@@ -129,19 +174,51 @@ NSString* token;
     NSString* identifier = @"ProjectListCell";
     ProjectTableExtensionViewCell *cell =[tableView dequeueReusableCellWithIdentifier: identifier ];
     
-    cell.ProjectName.text = @"aProject";
+    ListItem *item = [self.projectsList objectAtIndex:indexPath.row];
+    cell.ProjectName.text = [item getTitle];
     
     return cell;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.projectsList count];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 40;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{    
+{
+    UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:spinner];
+    spinner.hidesWhenStopped = YES;
+    
+    [spinner startAnimating];
+    
+    currentEntity= [self.projectsList objectAtIndex:indexPath.row];
+    
+    NSString* obj = [NSString stringWithFormat:@"{'Url':'%@', 'Description':'%@'}", self.urlTxt.text, @""];
+    NSDictionary* dic = [NSDictionary dictionaryWithObjects:@[obj, @"", [NSString stringWithFormat:@"%@", currentEntity.Id]] forKeys:@[@"URL", @"Comments", @"Project"]];
+    
+    ListItem* newReference = [[ListItem alloc] initWithDictionary:dic];
+    
+    __weak ActionViewController *sself = self;
+    
+    ProjectClientEx *client = [ProjectClientEx getClient: token];
+    
+    NSURLSessionTask* task =[client addReference:newReference callback:^(BOOL success, NSError *error) {
+        if(error == nil){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                sself.projectTable.hidden = true;
+                sself.selectProjectLbl.hidden = true;
+                sself.successMsg.hidden = false;
+                sself.successMsg.text = [NSString stringWithFormat:@"Reference added successfully to the %@ Project.", [currentEntity getTitle]];
+                [spinner stopAnimating];
+            });
+        }
+    }];
+    
+    [task resume];
 }
 
 @end

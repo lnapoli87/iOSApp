@@ -1,68 +1,23 @@
-//
-//  Copyright (c) 2014 MS-OpenTech All rights reserved.
-//
-
-#import "ProjectDetailsViewController.h"
-#import "ReferencesTableViewCell.h"
-#import "ReferenceDetailsViewController.h"
 #import "CreateReferenceViewController.h"
 #import "EditProjectViewController.h"
-
-
+#import "ProjectClient.h"
+#import "ProjectDetailsViewController.h"
+#import "ReferenceDetailsViewController.h"
+#import "ReferencesTableViewCell.h"
+#import "office365-base-sdk/OAuthentication.h"
 
 @implementation ProjectDetailsViewController
 
 //ViewController actions
-#pragma mark -
-#pragma mark Default Methods
 -(void)viewDidLoad{
-    self.projectName.text = @"aProject";
-    self.navigationItem.title = @"aProject";
+    self.projectName.text = self.project.getTitle;
+    self.navigationItem.title = self.project.getTitle;
     self.navigationItem.rightBarButtonItem.title = @"Done";
-
+    self.selectedReference = false;
     self.projectNameField.hidden = true;
     
+    
     [self loadData];
-}
-
-
-
-#pragma mark -
-#pragma mark Loading References
--(void)loadData{
-}
-
--(void)getReferences:(UIActivityIndicatorView *) spinner{
-}
-
--(void)createReferencesList:(UIActivityIndicatorView *) spinner{
-}
-
-
-#pragma mark -
-#pragma mark Forward Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"createReference"]){
-        CreateReferenceViewController *controller = (CreateReferenceViewController *)segue.destinationViewController;
-        
-        controller.token = self.token;
-        
-    }else if([segue.identifier isEqualToString:@"referenceDetail"]){
-        ReferenceDetailsViewController *controller = (ReferenceDetailsViewController *)segue.destinationViewController;
-        
-        controller.token = self.token;
-        
-    }else if([segue.identifier isEqualToString:@"editProject"]){
-        EditProjectViewController *controller = (EditProjectViewController *)segue.destinationViewController;
-
-        controller.token = self.token;
-        
-    }
-
-}
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    return ([identifier isEqualToString:@"referenceDetail"]) || [identifier isEqualToString:@"createReference"] || [identifier isEqualToString:@"editProject"];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -71,24 +26,106 @@
 
 
 
-#pragma mark -
-#pragma mark Table actions
+//Loading References
+-(void)loadData{
+    //Create and add a spinner
+    UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:spinner];
+    spinner.hidesWhenStopped = YES;
+    [spinner startAnimating];
+    
+    ProjectClient* client = [ProjectClient getClient:self.token];
+    
+    NSURLSessionTask* task = [client getList:@"Research References" callback:^(ListEntity *list, NSError *error) {
+        
+        //If list doesn't exists, create one with name Research References
+        if(list){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self getReferences:spinner];
+            });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self createReferencesList:spinner];
+            });
+        }
+        
+    }];
+    [task resume];
+    
+}
+
+-(void)getReferences:(UIActivityIndicatorView *) spinner{
+    ProjectClient* client = [ProjectClient getClient:self.token];
+    
+    NSURLSessionTask* listReferencesTask = [client getReferencesByProjectId:self.project.Id callback:^(NSMutableArray *listItems, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.references = [listItems copy];
+                [self.refencesTable reloadData];
+                [spinner stopAnimating];
+            });
+        
+        }];
+
+    [listReferencesTask resume];
+}
+
+-(void)createReferencesList:(UIActivityIndicatorView *) spinner{
+    ProjectClient* client = [ProjectClient getClient:self.token];
+    
+    ListEntity* newList = [[ListEntity alloc ] init];
+    [newList setTitle:@"Research References"];
+    
+    NSURLSessionTask* createProjectListTask = [client createList:newList :^(ListEntity *list, NSError *error) {
+        [spinner stopAnimating];
+    }];
+    [createProjectListTask resume];
+}
+
+
+//Table actions
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* identifier = @"referencesListCell";
     ReferencesTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier: identifier ];
     
-    cell.titleField.text = @"Description";
-    cell.urlField.text = @"Url";
+    ListItem *item = [self.references objectAtIndex:indexPath.row];
+    NSDictionary *dic =[item getData:@"URL"];
+    cell.titleField.text = [dic valueForKey:@"Description"];
+    cell.urlField.text = [dic valueForKey:@"Url"];
     
     return cell;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.references count];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.selectedReference= [self.references objectAtIndex:indexPath.row];    
+    [self performSegueWithIdentifier:@"referenceDetail" sender:self];
 }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"createReference"]){
+        CreateReferenceViewController *controller = (CreateReferenceViewController *)segue.destinationViewController;
+        controller.project = self.project;
+        controller.token = self.token;
+    }else if([segue.identifier isEqualToString:@"referenceDetail"]){
+        ReferenceDetailsViewController *controller = (ReferenceDetailsViewController *)segue.destinationViewController;
+        controller.selectedReference = self.selectedReference;
+        controller.token = self.token;
+    }else if([segue.identifier isEqualToString:@"editProject"]){
+        EditProjectViewController *controller = (EditProjectViewController *)segue.destinationViewController;
+        controller.project = self.project;
+        controller.token = self.token;
+    }
+    self.selectedReference = false;
+}
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    return ([identifier isEqualToString:@"referenceDetail"] && self.selectedReference) || [identifier isEqualToString:@"createReference"] || [identifier isEqualToString:@"editProject"];
+}
+
+
 
 @end

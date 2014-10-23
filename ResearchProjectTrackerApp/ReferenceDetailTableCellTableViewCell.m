@@ -1,5 +1,9 @@
 //
-//  Copyright (c) 2014 MS-OpenTech All rights reserved.
+//  ReferenceDetailTableCellTableViewCell.m
+//  ResearchProjectTrackerApp
+//
+//  Created by Lucas Damian Napoli on 02/10/14.
+//  Copyright (c) 2014 microsoft. All rights reserved.
 //
 
 #import "ReferenceDetailTableCellTableViewCell.h"
