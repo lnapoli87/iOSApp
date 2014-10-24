@@ -132,7 +132,7 @@ const NSString *apiUrl = @"/_api/files";
         url = [NSString stringWithFormat:@"%@%@", self.Url , apiUrl];
     }
     else{
-        url = [NSString stringWithFormat:@"%@%@('%@')/Children", self.Url , apiUrl, [folder urlencode]];
+        url = [NSString stringWithFormat:@"%@%@", self.Url , apiUrl, [folder urlencode]];
     }
     
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url];
